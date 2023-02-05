@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Calender App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div class="top-bar">
+        <ul class="menu">
+            <li><a href="{{ url_for('main') }}">Calender App</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </div>
+    <div class="">
+        <div class="">
+            {% block content %}
+            <ul class="">
+                {% for year in years %}
+                    <li><a href= {{ url_for("calender", year=year )}}> {{ year }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endblock %}
+        </div>
+
+    </div>
+    {% if year %}
+    <div>
+      <a href="{{ url_for('main') }}">Back</a>
+    </div>
+    {% endif %}
+    <script src="{{ url_for('static', filename='js/vendor/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/what-input.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/foundation.min.js') }}"></script>
+
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

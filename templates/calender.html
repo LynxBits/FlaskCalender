@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<title>Calender</title>
+{% if year %}
+<h1>{{ year }}!</h1>
+
+{% for week in dates_dct %}
+
+<div class="grid-x grid-padding-x small-up-4 medium-up-8">
+  <div class="cell small-1" style="max-width: 0.5rem;">
+    <h4>{{ week }}</h4>
+  </div>
+    {% for day_num in range(7) %}
+    <div class="cell medium-9">
+      {% if dates_dct[week][day_num] %}
+      <div class="capp-calender-box">
+        <form action={{ url_for("calender", year=year )}} method="POST" role="form">
+          <!-- refacture!!! --><h4>{{ form.date }}</h4> 
+          {{ form.date }}
+          {{ form.unit.label }}{{ form.unit() }}<br>
+          {{ form.note.label }}{{ form.note() }}<br>
+          {{ form.submit }}
+          <!-- <p>Unit:<input type="text" name="unit"></p>
+          <p>Note:<input type="text" name="note"></p>
+          <p><input type="submit" value="submit"></p> -->
+        </form>
+      </div>
+      {% else %}
+      {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+{% else %}
+  <h1><a href= {{ url_for("main")}}>Back and select a year</a></h1>
+{% endif %}
+
+{% endblock %}

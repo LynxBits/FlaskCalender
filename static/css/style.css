@@ -1,0 +1,21 @@
+.content {
+    background-color: #e3eb4a;
+    max-width: 750px;
+}
+
+.top-bar, .top-bar ul {
+    background-color: #524aeb;
+}
+.top-bar a {
+    color: azure;
+}
+
+.capp-calender-box {
+    border-radius: 1rem;
+    color: azure;
+    background: #524aeb;
+    padding: 0.7rem;
+    width: auto;
+    max-height: auto;
+    margin-bottom: 0.1rem;
+}
